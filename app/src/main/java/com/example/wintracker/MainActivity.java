@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
 {
-    int playerAmount = 0;
+    int playerAmount = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -33,10 +33,10 @@ public class MainActivity extends AppCompatActivity
         findViewById(R.id.AddPlayerButton).setVisibility(View.INVISIBLE);
 
         // Add a new row to the table with the players data.
-
         TableLayout table = findViewById(R.id.Table);
         TableRow tableRow = new TableRow(this);
         tableRow.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
+
         // Fill Position column.
         TextView pos = new TextView(this);
         pos.setText(Integer.toString(playerAmount));
@@ -44,16 +44,20 @@ public class MainActivity extends AppCompatActivity
         pos.setGravity(Gravity.CENTER);
         pos.setLayoutParams(new TableRow.LayoutParams(1));
         tableRow.addView(pos);
+
         // Fill Name column.
         TextView name = new TextView(this);
-        name.setText("name2");
+        EditText nameBox = (EditText) findViewById(R.id.PlayerNameBox);
+        String newPlayerName = (String) nameBox.getText().toString();
+        name.setText(newPlayerName);
         name.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
         name.setGravity(Gravity.CENTER);
         name.setLayoutParams(new TableRow.LayoutParams(2));
         tableRow.addView(name);
+
         // Fill Wins column
         TextView wins = new TextView(this);
-        wins.setText("420");
+        wins.setText("0");
         wins.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
         wins.setGravity(Gravity.CENTER);
         wins.setLayoutParams(new TableRow.LayoutParams(2));
