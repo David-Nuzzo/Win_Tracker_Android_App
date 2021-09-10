@@ -4,8 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -41,7 +39,7 @@ public class MainActivity extends AppCompatActivity
         tableRow.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
         // Fill Position column.
         TextView pos = new TextView(this);
-        pos.setText(playerAmount);
+        pos.setText(Integer.toString(playerAmount));
         pos.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
         pos.setGravity(Gravity.CENTER);
         pos.setLayoutParams(new TableRow.LayoutParams(1));
@@ -60,6 +58,7 @@ public class MainActivity extends AppCompatActivity
         wins.setGravity(Gravity.CENTER);
         wins.setLayoutParams(new TableRow.LayoutParams(2));
         tableRow.addView(wins);
+
         // Add row to table.
         table.addView(tableRow, new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
 

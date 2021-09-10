@@ -97,9 +97,8 @@
         app:layout_constraintTop_toBottomOf="@+id/NewPlayerButton"
         app:layout_constraintVertical_bias="0.606">
 
-        // Table Headers
+        // Table Headers Row
         <TableRow>
-
             <TextView
                 android:layout_width="40dp"
                 android:layout_column="1"
@@ -122,8 +121,6 @@
                 android:text="Wins"
                 android:textStyle="bold" />
         </TableRow>
-
-        // Need to be added in code.
 
         <TableRow>
 
