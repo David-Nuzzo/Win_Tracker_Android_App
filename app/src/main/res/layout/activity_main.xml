@@ -83,4 +83,66 @@
         app:layout_constraintVertical_bias="0.951"
         tools:visibility="visible" />
 
+    <TableLayout
+        android:id="@+id/Table"
+        android:layout_width="250dp"
+        android:layout_height="400dp"
+        android:clickable="true"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/AuthorLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NewPlayerButton"
+        app:layout_constraintVertical_bias="0.606">
+
+        // Table Headers
+        <TableRow>
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_column="1"
+                android:gravity="center"
+                android:padding="3dip"
+                android:text="Pos"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="153dp"
+                android:gravity="center"
+                android:padding="3dip"
+                android:text="Name"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="57dp"
+                android:gravity="center"
+                android:padding="3dip"
+                android:text="Wins"
+                android:textStyle="bold" />
+        </TableRow>
+
+        // Need to be added in code.
+
+        <TableRow>
+
+            <TextView
+                android:layout_column="1"
+                android:gravity="center"
+                android:padding="3dip"
+                android:text="0" />
+
+            <TextView
+                android:gravity="center"
+                android:padding="3dip"
+                android:text="Name1" />
+
+            <TextView
+                android:gravity="center"
+                android:padding="3dip"
+                android:text="0" />
+        </TableRow>
+    </TableLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
