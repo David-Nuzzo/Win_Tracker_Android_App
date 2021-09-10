@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
     }
 
-
     public void New_Player_Button_OnClick(View view)
     {
         findViewById(R.id.PlayerNameBox).setVisibility(View.VISIBLE);
