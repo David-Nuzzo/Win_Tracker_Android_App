@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/TitleTextBox"
-        android:layout_width="384dp"
+        android:layout_width="380dp"
         android:layout_height="35dp"
         android:text="@string/app_title"
         android:textAlignment="center"
@@ -23,34 +24,36 @@
 
     <Button
         android:id="@+id/NewPlayerButton"
-        android:layout_width="110dp"
+        android:layout_width="100dp"
         android:layout_height="62dp"
         android:clickable="false"
         android:onClick="New_Player_Button_OnClick"
         android:text="@string/new_player_button"
+        android:textSize="13sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/Table"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintHorizontal_bias="0.061"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.165" />
+        app:layout_constraintTop_toBottomOf="@+id/TitleTextBox"
+        app:layout_constraintVertical_bias="0.454" />
 
     <Button
         android:id="@+id/AddPlayerButton"
-        android:layout_width="110dp"
+        android:layout_width="100dp"
         android:layout_height="62dp"
         android:clickable="false"
         android:onClick="Add_Player_Button_OnClick"
         android:text="@string/add_player_button"
+        android:textSize="13sp"
         android:textStyle="bold"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/Table"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.986"
+        app:layout_constraintHorizontal_bias="0.961"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.164" />
+        app:layout_constraintTop_toBottomOf="@+id/TitleTextBox"
+        app:layout_constraintVertical_bias="0.45" />
 
     <EditText
         android:id="@+id/PlayerNameBox"
@@ -59,14 +62,15 @@
         android:ems="10"
         android:gravity="center"
         android:hint="@string/player_name_hint"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/AddPlayerButton"
+        app:layout_constraintHorizontal_bias="0.436"
         app:layout_constraintStart_toEndOf="@+id/NewPlayerButton"
         app:layout_constraintTop_toBottomOf="@+id/TitleTextBox"
-        app:layout_constraintVertical_bias="0.060000002"
-        android:importantForAutofill="no" />
+        app:layout_constraintVertical_bias="0.05" />
 
     <TextView
         android:id="@+id/AuthorLabel"
@@ -85,42 +89,63 @@
 
     <TableLayout
         android:id="@+id/Table"
-        android:layout_width="250dp"
-        android:layout_height="400dp"
+        android:layout_width="380dp"
+        android:layout_height="396dp"
+        android:background="#DFDFDF"
         android:clickable="true"
         android:orientation="vertical"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/AuthorLabel"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintHorizontal_bias="0.612"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/NewPlayerButton"
-        app:layout_constraintVertical_bias="0.606">
+        app:layout_constraintTop_toBottomOf="@+id/PlayerNameBox"
+        app:layout_constraintVertical_bias="0.25">
 
         // Table Headers Row
+
         <TableRow>
 
             <TextView
-                android:layout_width="40dp"
+                android:layout_width="60dp"
+                android:layout_height="35dp"
                 android:layout_column="1"
+                android:background="#D1D1D1"
                 android:clickable="false"
                 android:gravity="center"
                 android:padding="3dip"
                 android:text="Pos"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:layout_width="153dp"
+                android:layout_width="190dp"
+                android:layout_height="35dp"
+                android:background="#D1D1D1"
                 android:gravity="center"
                 android:padding="3dip"
                 android:text="Name"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:layout_width="57dp"
+                android:layout_width="60dp"
+                android:layout_height="35dp"
+                android:background="#D1D1D1"
                 android:gravity="center"
                 android:padding="3dip"
                 android:text="Wins"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="35dp"
+                android:background="#D1D1D1"
+                android:gravity="center"
+                android:padding="3dip"
+                android:text="+"
+                android:textSize="16sp"
                 android:textStyle="bold" />
         </TableRow>
     </TableLayout>

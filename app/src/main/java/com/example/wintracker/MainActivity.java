@@ -7,7 +7,9 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -46,10 +48,12 @@ public class MainActivity extends AppCompatActivity
         // Fill Pos column.
         TextView pos = new TextView(this);
         pos.setText(Integer.toString(playerAmount));
-        pos.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
+        //pos.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
         pos.setGravity(Gravity.CENTER);
         pos.setLayoutParams(new TableRow.LayoutParams(1));
         pos.setBackgroundColor(Color.WHITE);
+        pos.setHeight(97);
+        pos.setTextSize(16);
         tableRow.addView(pos);
 
         // Fill Name column.
@@ -57,10 +61,11 @@ public class MainActivity extends AppCompatActivity
         EditText nameBox = (EditText) findViewById(R.id.PlayerNameBox);
         String newPlayerName = (String) nameBox.getText().toString();
         name.setText(newPlayerName);
-        name.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
         name.setGravity(Gravity.CENTER);
         name.setLayoutParams(new TableRow.LayoutParams(2));
         name.setBackgroundColor(Color.WHITE);
+        name.setHeight(97);
+        name.setTextSize(16);
         tableRow.addView(name);
 
         // Fill Wins column
@@ -68,14 +73,27 @@ public class MainActivity extends AppCompatActivity
         wins.setText("0");
         wins.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
         wins.setGravity(Gravity.CENTER);
-        wins.setLayoutParams(new TableRow.LayoutParams(2));
+        wins.setLayoutParams(new TableRow.LayoutParams(3));
         wins.setBackgroundColor(Color.WHITE);
+        wins.setHeight(97);
+        wins.setTextSize(16);
         tableRow.addView(wins);
+
+        // Fill Add Win Button Column (Make Invisible)
+        Button addWinBtn = new Button(this);
+        addWinBtn.setText("+");
+        addWinBtn.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
+        addWinBtn.setGravity(Gravity.CENTER);
+        addWinBtn.setLayoutParams(new TableRow.LayoutParams(4));
+        addWinBtn.setBackgroundColor(Color.WHITE);
+        addWinBtn.setHeight(97);
+        addWinBtn.setTextSize(16);
+        tableRow.addView(addWinBtn);
 
         // Add row to table.
         table.addView(tableRow, new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
 
-        // Set onclick listener for the row with action.
+        // Set onClick listener for the row with action.
         tableRow.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -83,16 +101,27 @@ public class MainActivity extends AppCompatActivity
             {
                 // Make all the rows and columns of the table have a white background.
                 // This loops through all table rows.
+                int counter = 4;
                 for(int i = 0; i < table.getChildCount(); i++)
                 {
                     TableRow row = (TableRow) table.getChildAt(i);
                     // This will iterate through the current rows columns. (Thus all rows columns when used with the above loop.)
                     for(int j = 0; j < row.getChildCount(); j++)
                     {
-                        TextView btn = (TextView) row.getChildAt(j);
-                        btn.setBackgroundColor(Color.WHITE);
+                        // Leave the header row untouched.
+                        if(counter >= 1)
+                        {
+                            TextView element = (TextView) row.getChildAt(j);
+                            counter--;
+                        }
+                        else
+                        {
+                            TextView element = (TextView) row.getChildAt(j);
+                            element.setBackgroundColor(Color.WHITE);
+                        }
                     }
                 }
+                counter = 4;
 
                 // Highlighted the selected rows elements.
                 // Update the selectedPlayerPos.
@@ -100,9 +129,18 @@ public class MainActivity extends AppCompatActivity
                 pos.setBackgroundColor(Color.BLUE);
                 name.setBackgroundColor(Color.BLUE);
                 wins.setBackgroundColor(Color.BLUE);
-
+                addWinBtn.setBackgroundColor(Color.BLUE);
             }
         });
+
+        // Set onClick listener for the plus button in each row.
+        addWinBtn.setOnClickListener(new View.OnClickListener()
+         {
+             @Override
+             public void onClick(View view) {
+
+             }
+         });
 
         // Remove Name and and 1 to playerAmount.
         EditText PlayerNameBox = findViewById(R.id.PlayerNameBox);
