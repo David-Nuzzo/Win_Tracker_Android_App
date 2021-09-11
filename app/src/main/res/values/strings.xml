@@ -5,4 +5,8 @@
     <string name="add_player_button">Add Player</string>
     <string name="player_name_hint">Name</string>
     <string name="author_label">Developed by David Nuzzo</string>
+    <string name="position_column_header">Pos</string>
+    <string name="name_column_header">Name</string>
+    <string name="wins_column_header">Wins</string>
+    <string name="add_win_button_text">+</string>
 </resources>

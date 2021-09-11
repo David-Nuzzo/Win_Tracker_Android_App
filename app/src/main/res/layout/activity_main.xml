@@ -92,7 +92,6 @@
         android:layout_width="380dp"
         android:layout_height="396dp"
         android:background="#DFDFDF"
-        android:clickable="true"
         android:orientation="vertical"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -101,11 +100,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PlayerNameBox"
         app:layout_constraintVertical_bias="0.25">
-
-        // Table Headers Row
-
-        <TableRow>
-
+        <!-- Table Headers Row -->
+        <TableRow tools:ignore="UselessParent">
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="35dp"
@@ -114,37 +110,34 @@
                 android:clickable="false"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="Pos"
+                android:text="@string/position_column_header"
                 android:textSize="16sp"
                 android:textStyle="bold" />
-
             <TextView
-                android:layout_width="190dp"
+                android:layout_width="170dp"
                 android:layout_height="35dp"
                 android:background="#D1D1D1"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="Name"
+                android:text="@string/name_column_header"
                 android:textSize="16sp"
                 android:textStyle="bold" />
-
             <TextView
-                android:layout_width="60dp"
+                android:layout_width="50dp"
                 android:layout_height="35dp"
                 android:background="#D1D1D1"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="Wins"
+                android:text="@string/wins_column_header"
                 android:textSize="16sp"
                 android:textStyle="bold" />
-
             <TextView
-                android:layout_width="70dp"
+                android:layout_width="100dp"
                 android:layout_height="35dp"
                 android:background="#D1D1D1"
                 android:gravity="center"
                 android:padding="3dip"
-                android:text="+"
+                android:text="@string/add_win_button_text"
                 android:textSize="16sp"
                 android:textStyle="bold" />
         </TableRow>
