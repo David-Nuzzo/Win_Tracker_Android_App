@@ -50,8 +50,8 @@ public class MainActivity extends AppCompatActivity
         pos.setGravity(Gravity.CENTER);
         pos.setLayoutParams(new TableRow.LayoutParams(1));
         pos.setBackgroundColor(Color.WHITE);
-        pos.setHeight(97);
-        pos.setTextSize(16);
+        pos.setHeight(100);
+        pos.setTextSize(14);
         tableRow.addView(pos);
 
         // Fill Name column.
@@ -62,8 +62,8 @@ public class MainActivity extends AppCompatActivity
         name.setGravity(Gravity.CENTER);
         name.setLayoutParams(new TableRow.LayoutParams(2));
         name.setBackgroundColor(Color.WHITE);
-        name.setHeight(97);
-        name.setTextSize(16);
+        name.setHeight(100);
+        name.setTextSize(14);
         tableRow.addView(name);
 
         // Fill Wins column
@@ -73,8 +73,8 @@ public class MainActivity extends AppCompatActivity
         wins.setGravity(Gravity.CENTER);
         wins.setLayoutParams(new TableRow.LayoutParams(3));
         wins.setBackgroundColor(Color.WHITE);
-        wins.setHeight(97);
-        wins.setTextSize(16);
+        wins.setHeight(100);
+        wins.setTextSize(14);
         tableRow.addView(wins);
 
         // Fill Add Win Button Column (Make Invisible)
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity
         addWinBtn.setGravity(Gravity.CENTER);
         addWinBtn.setLayoutParams(new TableRow.LayoutParams(4));
         addWinBtn.setBackgroundColor(Color.WHITE);
-        addWinBtn.setHeight(97);
+        addWinBtn.setHeight(100);
         addWinBtn.setTextSize(16);
         tableRow.addView(addWinBtn);
 
