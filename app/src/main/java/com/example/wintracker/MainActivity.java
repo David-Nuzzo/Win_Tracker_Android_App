@@ -148,16 +148,25 @@ public class MainActivity extends AppCompatActivity
 
                         if(Integer.parseInt(txtView_I_Wins.getText().toString()) < Integer.parseInt(txtView_I_Add1Wins.getText().toString()))
                         {
-                            // Update position numbers in each rows.
+                            // Get the current pos number of iRow and add 1 to it.
                             Log.i("iAdd1Rows has more wins", "I will swap the rows around.");
                             TextView tempPos = (TextView) iRow.getChildAt(0);
                             int newPosNumber = Integer.parseInt(tempPos.getText().toString()) + 1;
                             tempPos.setText(String.valueOf(newPosNumber));
+                            ((TextView) iRow.getChildAt(0)).setText(tempPos.getText().toString());
 
+                            // Get the current pos number of iAdd1Row and subtract 1 from it.
+                            Log.i("iAdd1Rows has more wins", "I will swap the rows around.");
+                            TextView tempPos2 = (TextView) iAdd1Row.getChildAt(0);
+                            int newPosNumber2 = Integer.parseInt(tempPos2.getText().toString()) - 1;
+                            tempPos2.setText(String.valueOf(newPosNumber2));
+                            ((TextView) iAdd1Row.getChildAt(0)).setText(tempPos2.getText().toString());
+
+                            // Remove the current rows.
                             table.removeViewAt(row);
                             table.removeViewAt((row));
 
-
+                            // Add the new rows.
                             table.addView(iAdd1Row,row);
                             table.addView(iRow, (row +1));
 
