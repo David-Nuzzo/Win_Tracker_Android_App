@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -14,7 +15,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
 {
-    int playerAmount = 1;
+    int playerAmount = 0;
     int selectedPlayerPos = 0;
 
     @Override
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity
 
         // Fill Pos column.
         TextView pos = new TextView(this);
-        pos.setText(Integer.toString(playerAmount));
+        pos.setText(Integer.toString(playerAmount + 1));
         //pos.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
         pos.setGravity(Gravity.CENTER);
         pos.setLayoutParams(new TableRow.LayoutParams(1));
@@ -122,9 +123,57 @@ public class MainActivity extends AppCompatActivity
                 wins.setBackgroundResource(R.color.light_green);
                 addWinBtn.setBackgroundResource(R.color.light_green);
 
-
                 int currentWins = Integer.parseInt(wins.getText().toString());
                 wins.setText(Integer.toString(currentWins + 1));
+
+
+                // Sort the table (Descending using Bubble Sort)
+                // This for loop loops through each row of the table. (Loop starts on 1 to miss out the header row and ends 1 early as the last row is already compared)
+                for(int row = 1; row < table.getChildCount() - 1; row++)
+                {
+                    // This for loop, loops through each column (of each row with application of the previous for loop.)
+                    // This for loop has been restricted to loop through only the pos, name and wins columns of each row.
+                    for(int rowColumn = 0; rowColumn < tableRow.getChildCount() - 1; rowColumn++)
+                    {
+                        // Get i and i+1 and assign them to temp tablerows.
+                        TableRow iRow     = (TableRow) table.getChildAt(row);
+                        TableRow iAdd1Row = (TableRow) table.getChildAt(row+1);
+
+                        // Read the values of the wins from iRow and iAdd1Row.
+                        TextView txtView_I_Wins = (TextView) iRow.getChildAt(2);
+                        //Log.i("iRows Content Wins", txtView_I_Wins.getText().toString());
+
+                        TextView txtView_I_Add1Wins = (TextView) iAdd1Row.getChildAt(2);
+                        //Log.i("iAdd1Rows Content Wins", txtView_I_Add1Wins.getText().toString());
+
+                        if(Integer.parseInt(txtView_I_Wins.getText().toString()) < Integer.parseInt(txtView_I_Add1Wins.getText().toString()))
+                        {
+                            // Get the current pos number of iRow and add 1 to it.
+                            Log.i("iAdd1Rows has more wins", "I will swap the rows around.");
+                            TextView tempPos = (TextView) iRow.getChildAt(0);
+                            int newPosNumber = Integer.parseInt(tempPos.getText().toString()) + 1;
+                            tempPos.setText(String.valueOf(newPosNumber));
+                            ((TextView) iRow.getChildAt(0)).setText(tempPos.getText().toString());
+
+                            // Get the current pos number of iAdd1Row and subtract 1 from it.
+                            Log.i("iAdd1Rows has more wins", "I will swap the rows around.");
+                            TextView tempPos2 = (TextView) iAdd1Row.getChildAt(0);
+                            int newPosNumber2 = Integer.parseInt(tempPos2.getText().toString()) - 1;
+                            tempPos2.setText(String.valueOf(newPosNumber2));
+                            ((TextView) iAdd1Row.getChildAt(0)).setText(tempPos2.getText().toString());
+
+                            // Remove the current rows.
+                            table.removeViewAt(row);
+                            table.removeViewAt((row));
+
+                            // Add the new rows.
+                            table.addView(iAdd1Row,row);
+                            table.addView(iRow, (row +1));
+
+                        }
+
+                    }
+                }
             }
         });
 
