@@ -101,7 +101,9 @@
         app:layout_constraintTop_toBottomOf="@+id/PlayerNameBox"
         app:layout_constraintVertical_bias="0.25">
         <!-- Table Headers Row -->
-        <TableRow tools:ignore="UselessParent">
+        <TableRow
+            android:id="@+id/HeaderRow"
+            tools:ignore="UselessParent">
 
             <TextView
                 android:layout_width="40dp"
