@@ -2,6 +2,7 @@ package com.example.wintracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -50,9 +51,10 @@ public class MainActivity extends AppCompatActivity
         //pos.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
         pos.setGravity(Gravity.CENTER);
         pos.setLayoutParams(new TableRow.LayoutParams(1));
-        pos.setBackgroundColor(Color.WHITE);
+        pos.setBackgroundColor(Color.BLACK);
         pos.setHeight(100);
         pos.setTextSize(15);
+        pos.setTextColor(getResources().getColor(R.color.text));
         tableRow.addView(pos);
 
         // Fill Name column.
@@ -62,9 +64,10 @@ public class MainActivity extends AppCompatActivity
         name.setText(newPlayerName);
         name.setGravity(Gravity.CENTER);
         name.setLayoutParams(new TableRow.LayoutParams(2));
-        name.setBackgroundColor(Color.WHITE);
+        name.setBackgroundColor(Color.BLACK);
         name.setHeight(100);
         name.setTextSize(15);
+        name.setTextColor(getResources().getColor(R.color.text));
         tableRow.addView(name);
 
         // Fill Wins column
@@ -73,9 +76,10 @@ public class MainActivity extends AppCompatActivity
         wins.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
         wins.setGravity(Gravity.CENTER);
         wins.setLayoutParams(new TableRow.LayoutParams(3));
-        wins.setBackgroundColor(Color.WHITE);
+        wins.setBackgroundColor(Color.BLACK);
         wins.setHeight(100);
         wins.setTextSize(15);
+        wins.setTextColor(getResources().getColor(R.color.text));
         tableRow.addView(wins);
 
         // Fill Add Win Button Column (Make Invisible)
@@ -84,9 +88,10 @@ public class MainActivity extends AppCompatActivity
         addWinBtn.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
         addWinBtn.setGravity(Gravity.CENTER);
         addWinBtn.setLayoutParams(new TableRow.LayoutParams(4));
-        addWinBtn.setBackgroundColor(Color.WHITE);
+        addWinBtn.setBackgroundColor(Color.BLACK);
         addWinBtn.setHeight(100);
         addWinBtn.setTextSize(16);
+        addWinBtn.setTextColor(getResources().getColor(R.color.text));
         tableRow.addView(addWinBtn);
 
         // Add row to table.
@@ -98,14 +103,14 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                AllTableElementsWhiteBg(table);
+                AllTableElementsBlackBg(table);
 
                 // Highlighted the selected row blue & update the selectedPlayerPos.
                 selectedPlayerPos = Integer.parseInt(pos.getText().toString());
-                pos.setBackgroundResource(R.color.light_green);
-                name.setBackgroundResource(R.color.light_green);
-                wins.setBackgroundResource(R.color.light_green);
-                addWinBtn.setBackgroundResource(R.color.light_green);
+                //pos.setBackgroundResource(R.color.light_green);
+                //name.setBackgroundResource(R.color.light_green);
+                //wins.setBackgroundResource(R.color.light_green);
+                //addWinBtn.setBackgroundResource(R.color.light_green);
             }
         });
 
@@ -115,13 +120,13 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                AllTableElementsWhiteBg(table);
+                AllTableElementsBlackBg(table);
                 // Highlighted the selected row blue & update the selectedPlayerPos.
                 selectedPlayerPos = Integer.parseInt(pos.getText().toString());
-                pos.setBackgroundResource(R.color.light_green);
-                name.setBackgroundResource(R.color.light_green);
-                wins.setBackgroundResource(R.color.light_green);
-                addWinBtn.setBackgroundResource(R.color.light_green);
+                //pos.setBackgroundResource(R.color.light_green);
+                //name.setBackgroundResource(R.color.light_green);
+                //wins.setBackgroundResource(R.color.light_green);
+                //addWinBtn.setBackgroundResource(R.color.light_green);
 
                 int currentWins = Integer.parseInt(wins.getText().toString());
                 wins.setText(Integer.toString(currentWins + 1));
@@ -174,12 +179,13 @@ public class MainActivity extends AppCompatActivity
 
     // Methods
 
-    public void AllTableElementsWhiteBg(TableLayout table)
+    public void AllTableElementsBlackBg(TableLayout table)
     {
         // Make all the rows and columns of the table have a white background.
         // This loops through all table rows.
         int counter = 4;
-        for (int i = 0; i < table.getChildCount(); i++) {
+        for (int i = 0; i < table.getChildCount(); i++)
+        {
             TableRow row = (TableRow) table.getChildAt(i);
             // This will iterate through the current rows columns. (Thus all rows columns when used with the above loop.)
             for (int j = 0; j < row.getChildCount(); j++)
@@ -193,7 +199,7 @@ public class MainActivity extends AppCompatActivity
                 else
                 {
                     TextView element = (TextView) row.getChildAt(j);
-                    element.setBackgroundColor(Color.WHITE);
+                    element.setBackgroundColor(Color.BLACK);
                 }
             }
         }
