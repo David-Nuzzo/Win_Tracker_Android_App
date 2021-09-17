@@ -128,52 +128,92 @@ public class MainActivity extends AppCompatActivity
 
 
                 // Sort the table (Descending using Bubble Sort)
-                // This for loop loops through each row of the table. (Loop starts on 1 to miss out the header row and ends 1 early as the last row is already compared)
-                for(int row = 1; row < table.getChildCount() - 1; row++)
+                /* This for loop loops through each row of the table. (Loop starts on 1 to miss out the header row)
+                for(int i = 1; i < table.getChildCount() - 1; i++)
                 {
-                    // This for loop, loops through each column (of each row with application of the previous for loop.)
-                    // This for loop has been restricted to loop through only the pos, name and wins columns of each row.
-                    for(int rowColumn = 0; rowColumn < tableRow.getChildCount() - 1; rowColumn++)
+                    // This for loop allows the selected row to be compared against all other rows of the table.
+                    for(int j = i+1; j < table.getChildCount(); j++)
                     {
-                        // Get i and i+1 and assign them to temp tablerows.
-                        TableRow iRow     = (TableRow) table.getChildAt(row);
-                        TableRow iAdd1Row = (TableRow) table.getChildAt(row+1);
+                        // Get the selected row.
+                        TableRow iRow = (TableRow) table.getChildAt(i);
+                        // Read the values of the wins from iRow.
+                        TextView txtViewiRowWins = (TextView) iRow.getChildAt(2);
+                        TextView txtViewiRowName = (TextView) iRow.getChildAt(1);
+                        Log.i("I-Row's Name", txtViewiRowName.getText().toString());
+                        Log.i("I-Row's Wins", txtViewiRowWins.getText().toString());
 
-                        // Read the values of the wins from iRow and iAdd1Row.
-                        TextView txtView_I_Wins = (TextView) iRow.getChildAt(2);
-                        //Log.i("iRows Content Wins", txtView_I_Wins.getText().toString());
+                        // Get the row below the selected row.
+                        TableRow jRow = (TableRow) table.getChildAt(j);
+                        TextView jRowName = (TextView) jRow.getChildAt(1);
+                        TextView jRowWins = (TextView) jRow.getChildAt(2);
+                        Log.i("J-Row's Name", jRowName.getText().toString());
+                        Log.i("J-Row's Wins", jRowWins.getText().toString());
 
-                        TextView txtView_I_Add1Wins = (TextView) iAdd1Row.getChildAt(2);
-                        //Log.i("iAdd1Rows Content Wins", txtView_I_Add1Wins.getText().toString());
-
-                        if(Integer.parseInt(txtView_I_Wins.getText().toString()) < Integer.parseInt(txtView_I_Add1Wins.getText().toString()))
+                        // Compare wins in both rows.
+                        if(Integer.parseInt(txtViewiRowWins.getText().toString()) < Integer.parseInt(jRowWins.getText().toString()))
                         {
-                            // Get the current pos number of iRow and add 1 to it.
-                            Log.i("iAdd1Rows has more wins", "I will swap the rows around.");
-                            TextView tempPos = (TextView) iRow.getChildAt(0);
-                            int newPosNumber = Integer.parseInt(tempPos.getText().toString()) + 1;
-                            tempPos.setText(String.valueOf(newPosNumber));
-                            ((TextView) iRow.getChildAt(0)).setText(tempPos.getText().toString());
+                            // Update pos number of iRow, add 1 to it.
+                            Log.i("jRow has more wins", "I will swap the rows around.");
+                            TextView iRowPos = (TextView) iRow.getChildAt(0);
+                            int newiRowPosNum = Integer.parseInt(iRowPos.getText().toString()) + 1;
+                            ((TextView) iRow.getChildAt(0)).setText(String.valueOf(newiRowPosNum));
 
-                            // Get the current pos number of iAdd1Row and subtract 1 from it.
-                            Log.i("iAdd1Rows has more wins", "I will swap the rows around.");
-                            TextView tempPos2 = (TextView) iAdd1Row.getChildAt(0);
-                            int newPosNumber2 = Integer.parseInt(tempPos2.getText().toString()) - 1;
-                            tempPos2.setText(String.valueOf(newPosNumber2));
-                            ((TextView) iAdd1Row.getChildAt(0)).setText(tempPos2.getText().toString());
+                            // Update pos number of jRow, subtract 1 from it.
+                            TextView jRowPos = (TextView) jRow.getChildAt(0);
+                            int newjRowPosNum = Integer.parseInt(jRowPos.getText().toString()) - 1;
+                            ((TextView) jRow.getChildAt(0)).setText(String.valueOf(newjRowPosNum));
 
                             // Remove the current rows.
-                            table.removeViewAt(row);
-                            table.removeViewAt((row));
+                            table.removeViewAt(i);
+                            table.removeViewAt((i));
 
                             // Add the new rows.
-                            table.addView(iAdd1Row,row);
-                            table.addView(iRow, (row +1));
-
+                            table.addView(jRow,i);
+                            table.addView(iRow, (i + 1));
                         }
-
                     }
                 }
+                */
+
+                // New bubble sort attempts
+                for(int i = 1; i < table.getChildCount(); i++)
+                {
+                    for(int j = 1; j < table.getChildCount() - 1; j++)
+                    {
+                        // Get the row A and row B.
+                        TableRow RowA = (TableRow) table.getChildAt(j);
+                        TextView RowAWins = (TextView) RowA.getChildAt(2);
+                        //Log.i("Row A's Wins", RowAWins.getText().toString());
+
+                        TableRow RowB = (TableRow) table.getChildAt(j+1);
+                        TextView RowBWins = (TextView) RowB.getChildAt(2);
+                        //Log.i("Row B's Wins", RowBWins.getText().toString());
+
+                        // Compare row a and b wins
+                        if(Integer.parseInt(RowAWins.getText().toString()) < Integer.parseInt(RowBWins.getText().toString()))
+                        {
+                            // Swap the rows position numbers.
+                            TextView CurrentRowAPos = (TextView) RowA.getChildAt(0);
+                            int newRowAPos = Integer.parseInt(CurrentRowAPos.getText().toString()) + 1;
+                            ((TextView) RowA.getChildAt(0)).setText(String.valueOf(newRowAPos));
+
+                            TextView CurrentRowBPos = (TextView) RowB.getChildAt(0);
+                            int newRowBPos = Integer.parseInt(CurrentRowBPos.getText().toString()) - 1;
+                            ((TextView) RowB.getChildAt(0)).setText(String.valueOf(newRowBPos));
+
+                            // Swap the rows positions in the table.
+                            Log.i("Swap Completed", "Yes");
+                            // Remove the current rows.
+                            table.removeViewAt(j);
+                            table.removeViewAt(j);
+
+                            // Add the new rows.
+                            table.addView(RowB,j);
+                            table.addView(RowA,(j + 1));
+                        }
+                    }
+                }
+
             }
         });
 
