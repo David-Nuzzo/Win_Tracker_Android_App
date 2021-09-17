@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity
         pos.setLayoutParams(new TableRow.LayoutParams(1));
         pos.setBackgroundColor(Color.WHITE);
         pos.setHeight(100);
-        pos.setTextSize(14);
+        pos.setTextSize(15);
         tableRow.addView(pos);
 
         // Fill Name column.
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity
         name.setLayoutParams(new TableRow.LayoutParams(2));
         name.setBackgroundColor(Color.WHITE);
         name.setHeight(100);
-        name.setTextSize(14);
+        name.setTextSize(15);
         tableRow.addView(name);
 
         // Fill Wins column
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity
         wins.setLayoutParams(new TableRow.LayoutParams(3));
         wins.setBackgroundColor(Color.WHITE);
         wins.setHeight(100);
-        wins.setTextSize(14);
+        wins.setTextSize(15);
         tableRow.addView(wins);
 
         // Fill Add Win Button Column (Make Invisible)
