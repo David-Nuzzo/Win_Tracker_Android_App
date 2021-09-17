@@ -128,54 +128,6 @@ public class MainActivity extends AppCompatActivity
 
 
                 // Sort the table (Descending using Bubble Sort)
-                /* This for loop loops through each row of the table. (Loop starts on 1 to miss out the header row)
-                for(int i = 1; i < table.getChildCount() - 1; i++)
-                {
-                    // This for loop allows the selected row to be compared against all other rows of the table.
-                    for(int j = i+1; j < table.getChildCount(); j++)
-                    {
-                        // Get the selected row.
-                        TableRow iRow = (TableRow) table.getChildAt(i);
-                        // Read the values of the wins from iRow.
-                        TextView txtViewiRowWins = (TextView) iRow.getChildAt(2);
-                        TextView txtViewiRowName = (TextView) iRow.getChildAt(1);
-                        Log.i("I-Row's Name", txtViewiRowName.getText().toString());
-                        Log.i("I-Row's Wins", txtViewiRowWins.getText().toString());
-
-                        // Get the row below the selected row.
-                        TableRow jRow = (TableRow) table.getChildAt(j);
-                        TextView jRowName = (TextView) jRow.getChildAt(1);
-                        TextView jRowWins = (TextView) jRow.getChildAt(2);
-                        Log.i("J-Row's Name", jRowName.getText().toString());
-                        Log.i("J-Row's Wins", jRowWins.getText().toString());
-
-                        // Compare wins in both rows.
-                        if(Integer.parseInt(txtViewiRowWins.getText().toString()) < Integer.parseInt(jRowWins.getText().toString()))
-                        {
-                            // Update pos number of iRow, add 1 to it.
-                            Log.i("jRow has more wins", "I will swap the rows around.");
-                            TextView iRowPos = (TextView) iRow.getChildAt(0);
-                            int newiRowPosNum = Integer.parseInt(iRowPos.getText().toString()) + 1;
-                            ((TextView) iRow.getChildAt(0)).setText(String.valueOf(newiRowPosNum));
-
-                            // Update pos number of jRow, subtract 1 from it.
-                            TextView jRowPos = (TextView) jRow.getChildAt(0);
-                            int newjRowPosNum = Integer.parseInt(jRowPos.getText().toString()) - 1;
-                            ((TextView) jRow.getChildAt(0)).setText(String.valueOf(newjRowPosNum));
-
-                            // Remove the current rows.
-                            table.removeViewAt(i);
-                            table.removeViewAt((i));
-
-                            // Add the new rows.
-                            table.addView(jRow,i);
-                            table.addView(iRow, (i + 1));
-                        }
-                    }
-                }
-                */
-
-                // New bubble sort attempts
                 for(int i = 1; i < table.getChildCount(); i++)
                 {
                     for(int j = 1; j < table.getChildCount() - 1; j++)
@@ -203,17 +155,14 @@ public class MainActivity extends AppCompatActivity
 
                             // Swap the rows positions in the table.
                             Log.i("Swap Completed", "Yes");
-                            // Remove the current rows.
                             table.removeViewAt(j);
                             table.removeViewAt(j);
-
                             // Add the new rows.
                             table.addView(RowB,j);
                             table.addView(RowA,(j + 1));
                         }
                     }
                 }
-
             }
         });
 
