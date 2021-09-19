@@ -4,6 +4,6 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">@color/green_lighter</item> <!-- Used for status bar at top of phone. -->
         <item name="android:windowBackground">@color/black</item> <!-- Used for the app background -->
-        <item name="colorPrimary">@color/green</item> <!-- Used for the button colour -->
+        <item name="colorPrimary">@color/green_darker</item> <!-- Used for the button colour -->
     </style>
 </resources>

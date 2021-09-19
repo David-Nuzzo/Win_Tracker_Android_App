@@ -228,7 +228,7 @@ public class MainActivity extends AppCompatActivity
             // Sort the table (Descending using Bubble Sort)
             for(int i = 1; i < table.getChildCount(); i++)
             {
-                for(int j = 2; j < table.getChildCount() - 1; j++)
+                for(int j = 1; j < table.getChildCount() - 1; j++)
                 {
                     // Get the row A and row B.
                     TableRow RowA = (TableRow) table.getChildAt(j);
