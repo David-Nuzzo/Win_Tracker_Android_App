@@ -6,12 +6,13 @@
     <color name="red">#DA0303</color>
     <color name="green">#019103</color>
     <color name="green_lighter">#01B504</color>
+    <color name="green_darker">#175500</color>
     <color name="yellow">#E6C700</color>
     <color name="blue">#3AE1FF</color>
     <color name="grey_lighter">#C3B5B5B5</color>
     <color name="grey">#797979</color>
     <color name="grey_darker">#272727</color>
     <color name="gold">#8A7800</color>
-
     <color name="text">#E6E6E6</color>
+
 </resources>
