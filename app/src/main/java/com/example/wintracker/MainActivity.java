@@ -1,7 +1,7 @@
 package com.example.wintracker;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.core.content.res.ResourcesCompat;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -77,11 +77,10 @@ public class MainActivity extends AppCompatActivity
                 else
                 {
                     TextView element = (TextView) row.getChildAt(j);
-                    element.setBackground(getResources().getDrawable(R.drawable.player_row_default));
+                    element.setBackground(getDrawable(R.drawable.player_row_default));
                 }
             }
         }
-        counter = 4;
     }
 
     public void CreateEmptyLeaderboardTable(TableLayout table)
@@ -95,46 +94,46 @@ public class MainActivity extends AppCompatActivity
 
         // Define Pos header.
         TextView pos = new TextView(this);
-        pos.setText("Pos");
+        pos.setText(R.string.position_column_header);
         pos.setGravity(Gravity.CENTER);
         pos.setBackgroundColor(Color.BLUE);
         pos.setTextSize(TypedValue.COMPLEX_UNIT_SP,15);
         pos.setTextColor(getResources().getColor(R.color.text));
         pos.setLayoutParams(new TableRow.LayoutParams(0, tableRowHeight, 15));
-        pos.setBackground(getResources().getDrawable(R.drawable.player_row_default));
+        pos.setBackground(getDrawable(R.drawable.player_row_default));
         tableRow.addView(pos);
 
         // Define Name header.
         TextView name = new TextView(this);
-        name.setText("Name");
+        name.setText(R.string.name_column_header);
         name.setGravity(Gravity.CENTER);
         name.setBackgroundColor(getResources().getColor(R.color.grey_darker));
         name.setTextSize(TypedValue.COMPLEX_UNIT_SP,15);
         name.setTextColor(getResources().getColor(R.color.text));
         name.setLayoutParams(new TableRow.LayoutParams(0, tableRowHeight, 42));
-        name.setBackground(getResources().getDrawable(R.drawable.player_row_default));
+        name.setBackground(getDrawable(R.drawable.player_row_default));
         tableRow.addView(name);
 
         // Define Wins header
         TextView wins = new TextView(this);
-        wins.setText("Wins");
+        wins.setText(R.string.wins_column_header);
         wins.setGravity(Gravity.CENTER);
         wins.setBackgroundColor(getResources().getColor(R.color.purple));
         wins.setTextSize(TypedValue.COMPLEX_UNIT_SP,15);
         wins.setTextColor(getResources().getColor(R.color.text));
         wins.setLayoutParams(new TableRow.LayoutParams(0, tableRowHeight, 20));
-        wins.setBackground(getResources().getDrawable(R.drawable.player_row_default));
+        wins.setBackground(getDrawable(R.drawable.player_row_default));
         tableRow.addView(wins);
 
         // Define Button header
         TextView plusBtn = new TextView(this);
-        plusBtn.setText("+");
+        plusBtn.setText(R.string.add_win_button_text);
         plusBtn.setGravity(Gravity.CENTER);
         plusBtn.setBackgroundColor(getResources().getColor(R.color.gold));
         plusBtn.setTextSize(TypedValue.COMPLEX_UNIT_SP,15);
         plusBtn.setTextColor(getResources().getColor(R.color.text));
         plusBtn.setLayoutParams(new TableRow.LayoutParams(0, tableRowHeight, 23));
-        plusBtn.setBackground(getResources().getDrawable(R.drawable.player_row_default));
+        plusBtn.setBackground(getDrawable(R.drawable.player_row_default));
         tableRow.addView(plusBtn);
 
         // Add row to table.
