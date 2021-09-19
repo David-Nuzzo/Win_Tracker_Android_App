@@ -140,73 +140,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/NewPlayerButton"
-        app:layout_constraintVertical_bias="0.0">
+        >
 
         <TableLayout
-            android:id="@+id/Table"
+            android:id="@+id/table"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="visible">
-            <!-- Table Headers Row -->
+            android:layout_height="wrap_content">
+
             <TableRow
-                android:id="@+id/HeaderRow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/grey_darker"
-                android:orientation="horizontal"
-                tools:ignore="UselessParent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
-                <TextView
-                    android:id="@+id/PositionColumnHeader"
-                    android:layout_width="40dp"
-                    android:layout_height="match_parent"
-                    android:layout_column="1"
-                    android:clickable="false"
-                    android:gravity="center"
-                    android:padding="3dip"
-                    android:text="@string/position_column_header"
-                    android:textAlignment="center"
-                    android:textColor="@color/text"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/NameColumnHeader"
-                    android:layout_width="130dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:padding="3dip"
-                    android:text="@string/name_column_header"
-                    android:textAlignment="center"
-                    android:textColor="@color/text"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/WinsColumnHeader"
-                    android:layout_width="60dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:padding="3dip"
-                    android:text="@string/wins_column_header"
-                    android:textAlignment="center"
-                    android:textColor="@color/text"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/PlusColumnHeader"
-                    android:layout_width="65dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:padding="3dip"
-                    android:text="@string/add_win_button_text"
-                    android:textAlignment="center"
-                    android:textColor="@color/text"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-            </TableRow>
         </TableLayout>
     </ScrollView>
 
