@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity
 {
     int playerAmount = 0;
     int selectedPlayerPos = 0;
-    int tableRowHeight = 80;
+    int tableRowHeight = 85;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
