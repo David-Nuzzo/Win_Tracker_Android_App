@@ -9,5 +9,5 @@
     <string name="name_column_header">Name</string>
     <string name="wins_column_header">Wins</string>
     <string name="add_win_button_text">+</string>
-    <string name="version_label">Version 1.0</string>
+    <string name="version_label">Version 1.2</string>
 </resources>
